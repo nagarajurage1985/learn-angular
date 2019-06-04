@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card card-signin flex-row my-5">
+        <div class="card-img-left d-none d-md-flex">
+          <!-- Background image for card set in CSS! -->
+        </div>
+        <div class="card-body">
+          <h5 class="card-title text-center">Welcome back!
+          </h5>
+          <form #frmLogin="ngForm" (ngSubmit)="onUserLogin(frmLogin.value)" autocomplete="off">
+            <div class="form-group form-label-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" [(ngModel)]="username" name="username" #un="ngModel" class="form-control"
+                placeholder="Username" required>
+              <div class="alert alert-danger" *ngIf="un.touched && un.invalid">username is required.</div>
+            </div>
+
+            <div class="form-label-group">
+              <label for="username">Password</label>
+              <input type="password" id="password" [(ngModel)]="password" name="password" #pwd="ngModel"
+                class="form-control" placeholder="Password" required>
+              <div class="alert alert-danger" *ngIf="un.touched && un.invalid">Password is required.</div>
+            </div>
+            <div class="custom-control custom-checkbox mb-3">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">Remember password</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
+              type="submit">Sign in</button>
+            <div class="text-center">
+              <a class="small" [routerLink]="['/forgotpassword']">Forgot password?</a></div>
+
+            <hr>
+            <div class="text-center">
+              Don't have account yet?<a class="small" [routerLink]="['/register']"> Register here..</a></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
